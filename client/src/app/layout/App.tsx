@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Product } from "../models/product";
 import Catalog from "../../features/catalog/Catalog";
-import { Typography } from "@mui/material";
+import { Container, CssBaseline, Typography } from "@mui/material";
+import Header from "./Header";
 
 
 function App() {
@@ -21,16 +22,18 @@ function App() {
       price: (prevState.length * 100) + 100,
       brand: 'Spitz/スピッツ',
       description: 'some description',
-      pictureUrl: 'http://picsum.photos/200'
+      pictureUrl: '../../public/images/ひみつスタジオ.jpg'
     }])
   }
 
   return (
-    <div>
-      <Typography variant="h1">Spitz Store</Typography>
-      <Catalog products={products} addProduct={addProduct} />
-
-    </div>
+    <>
+      <CssBaseline />
+      <Header />
+      <Container>
+        <Catalog products={products} addProduct={addProduct} />
+      </Container>
+    </>
   );
 }
 
