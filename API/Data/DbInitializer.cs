@@ -6,7 +6,11 @@ namespace API.Data
     {
         public static void Initialize(StoreContext context)
         {
-            if (context.Products.Any()) return;
+            if (context.Products.Any())
+            {
+                context.Products.RemoveRange(context.Products);
+                context.SaveChanges();
+            };
 
             var products = new List<Product>
             {
@@ -15,7 +19,7 @@ namespace API.Data
                     Name = "ひみつスタジオ",
                     Description = "Secret Studio",
                     Price = 2023,
-                    PictureUrl = "client/public/images/ひみつスタジオ.jpg",
+                    PictureUrl = "/images/ひみつスタジオ.jpg",
                     Brand = "Spitz/スピッツ",
                     Type = "Japan Rock",
                     QuantityInStock = 100
@@ -25,7 +29,7 @@ namespace API.Data
                     Name = "見っけ",
                     Description = "Found it",
                     Price = 2019,
-                    PictureUrl = "client/public/images/見っけ.jpg",
+                    PictureUrl = "/images/見っけ.jpg",
                     Brand = "Spitz/スピッツ",
                     Type = "Japan Rock",
                     QuantityInStock = 100
@@ -35,7 +39,7 @@ namespace API.Data
                     Name = "醒めない",
                     Description = "Not Wake Up",
                     Price = 2016,
-                    PictureUrl = "client/public/images/醒めない.jpg",
+                    PictureUrl = "/images/醒めない.jpg",
                     Brand = "Spitz/スピッツ",
                     Type = "Japan Rock",
                     QuantityInStock = 100
@@ -45,7 +49,7 @@ namespace API.Data
                     Name = "小さな生き物",
                     Description = "Little Creatures",
                     Price = 2013,
-                    PictureUrl = "client/public/images/小さな生き物.jpg",
+                    PictureUrl = "/images/小さな生き物.jpg",
                     Brand = "Spitz/スピッツ",
                     Type = "Japan Rock",
                     QuantityInStock = 100
@@ -55,7 +59,7 @@ namespace API.Data
                     Name = "おるたな",
                     Description = "Orutana",
                     Price = 2012,
-                    PictureUrl = "client/public/images/おるたな.jpg",
+                    PictureUrl = "/images/おるたな.jpg",
                     Brand = "Spitz/スピッツ",
                     Type = "Japan Rock",
                     QuantityInStock = 100
@@ -65,7 +69,7 @@ namespace API.Data
                     Name = "とげまる",
                     Description = "Spiky Ball",
                     Price = 2010,
-                    PictureUrl = "client/public/images/とげまる.jpg",
+                    PictureUrl = "/images/とげまる.jpg",
                     Brand = "Spitz/スピッツ",
                     Type = "Japan Rock",
                     QuantityInStock = 100
@@ -75,7 +79,7 @@ namespace API.Data
                     Name = "さざなみ CD",
                     Description = "Rippl CD",
                     Price = 2007,
-                    PictureUrl = "client/public/images/さざなみ CD.jpg",
+                    PictureUrl = "/images/さざなみ CD.jpg",
                     Brand = "Spitz/スピッツ",
                     Type = "Japan Rock",
                     QuantityInStock = 100
@@ -85,7 +89,7 @@ namespace API.Data
                     Name = "スーベニア",
                     Description = "Souvenir",
                     Price = 2005,
-                    PictureUrl = "client/public/images/スーベニア.jpg",
+                    PictureUrl = "/images/スーベニア.jpg",
                     Brand = "Spitz/スピッツ",
                     Type = "Japan Rock",
                     QuantityInStock = 100
@@ -95,7 +99,7 @@ namespace API.Data
                     Name = "色色衣",
                     Description = "Various Clothes",
                     Price = 2004,
-                    PictureUrl = "client/public/images/色色衣.jpg",
+                    PictureUrl = "/images/色色衣.jpg",
                     Brand = "Spitz/スピッツ",
                     Type = "Japan Rock",
                     QuantityInStock = 100
@@ -105,7 +109,7 @@ namespace API.Data
                     Name = "三日月ロック",
                     Description = "Crescent Rock",
                     Price = 2002,
-                    PictureUrl = "client/public/images/三日月ロック.jpg",
+                    PictureUrl = "/images/三日月ロック.jpg",
                     Brand = "Spitz/スピッツ",
                     Type = "Japan Rock",
                     QuantityInStock = 100
@@ -115,7 +119,7 @@ namespace API.Data
                     Name = "ハヤブサ",
                     Description = "Falcon",
                     Price = 2000,
-                    PictureUrl = "client/public/images/ハヤブサ.jpg",
+                    PictureUrl = "/images/ハヤブサ.jpg",
                     Brand = "Spitz/スピッツ",
                     Type = "Japan Rock",
                     QuantityInStock = 100
@@ -125,7 +129,7 @@ namespace API.Data
                     Name = "花鳥風月",
                     Description = "Beauty of Nature",
                     Price = 1999,
-                    PictureUrl = "client/public/images/花鳥風月.jpg",
+                    PictureUrl = "/images/花鳥風月.jpg",
                     Brand = "Spitz/スピッツ",
                     Type = "Japan Rock",
                     QuantityInStock = 100
@@ -135,7 +139,7 @@ namespace API.Data
                     Name = "フェイクファー",
                     Description = "Fake Fur",
                     Price = 1998,
-                    PictureUrl = "client/public/images/フェイクファー.jpg",
+                    PictureUrl = "/images/フェイクファー.jpg",
                     Brand = "Spitz/スピッツ",
                     Type = "Japan Rock",
                     QuantityInStock = 100
@@ -145,7 +149,7 @@ namespace API.Data
                     Name = "インディゴ地平線",
                     Description = "Indigo Horizon",
                     Price = 1996,
-                    PictureUrl = "client/public/images/インディゴ地平線.jpg",
+                    PictureUrl = "/images/インディゴ地平線.jpg",
                     Brand = "Spitz/スピッツ",
                     Type = "Japan Rock",
                     QuantityInStock = 100
@@ -155,7 +159,7 @@ namespace API.Data
                     Name = "ハチミツ",
                     Description = "Honey",
                     Price = 1995,
-                    PictureUrl = "client/public/images/ハチミツ.jpg",
+                    PictureUrl = "/images/ハチミツ.jpg",
                     Brand = "Spitz/スピッツ",
                     Type = "Japan Rock",
                     QuantityInStock = 100
@@ -165,7 +169,7 @@ namespace API.Data
                     Name = "空の飛び方",
                     Description = "How to Fly in the Sky",
                     Price = 1994,
-                    PictureUrl = "client/public/images/空の飛び方.jpg",
+                    PictureUrl = "/images/空の飛び方.jpg",
                     Brand = "Spitz/スピッツ",
                     Type = "Japan Rock",
                     QuantityInStock = 100
@@ -175,7 +179,7 @@ namespace API.Data
                     Name = "Crispy!",
                     Description = "Crispy!",
                     Price = 1993,
-                    PictureUrl = "client/public/images/Crispy!.jpg",
+                    PictureUrl = "/images/Crispy!.jpg",
                     Brand = "Spitz/スピッツ",
                     Type = "Japan Rock",
                     QuantityInStock = 100
@@ -185,7 +189,7 @@ namespace API.Data
                     Name = "惑星のかけら",
                     Description = "Piece of the Planet",
                     Price = 1992,
-                    PictureUrl = "client/public/images/惑星のかけら.jpg",
+                    PictureUrl = "/images/惑星のかけら.jpg",
                     Brand = "Spitz/スピッツ",
                     Type = "Japan Rock",
                     QuantityInStock = 100
@@ -195,7 +199,7 @@ namespace API.Data
                     Name = "名前をつけてやる",
                     Description = "I'll Give You a Name",
                     Price = 1991,
-                    PictureUrl = "client/public/images/名前をつけてやる.jpg",
+                    PictureUrl = "/images/名前をつけてやる.jpg",
                     Brand = "Spitz/スピッツ",
                     Type = "Japan Rock",
                     QuantityInStock = 100
@@ -205,7 +209,7 @@ namespace API.Data
                     Name = "スピッツ",
                     Description = "Spitz",
                     Price = 1991,
-                    PictureUrl = "client/public/images/スピッツ.jpg",
+                    PictureUrl = "/images/スピッツ.jpg",
                     Brand = "Spitz/スピッツ",
                     Type = "Japan Rock",
                     QuantityInStock = 100
