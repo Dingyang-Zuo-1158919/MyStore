@@ -1,12 +1,21 @@
 import { Avatar, Button, Card, CardActions, CardContent, CardHeader, CardMedia, Typography } from "@mui/material";
 import { Product } from "../../app/models/product";
 import { Link } from "react-router-dom";
+import { LoadingButton } from "@material-ui/lab";
+import { useAppDispatch, useAppSelector } from "../../app/store/configureStore";
+import { addBasketItemAsync } from "../basket/basketSlice";
 
 interface Props {
     product: Product;
 }
 
 export default function ProductionCard({ product }: Props) {
+    const { status } = useAppSelector(state => state.basket);
+    const dispatch = useAppDispatch();
+
+
+
+
     return (
         <Card>
             <CardHeader
@@ -34,7 +43,10 @@ export default function ProductionCard({ product }: Props) {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small">Add to cart</Button>
+                <LoadingButton
+                    loading={status.includes('pendingAddItem' + product.id)}
+                    onClick={() => dispatch(addBasketItemAsync({ productId: product.id }))}
+                    size="small">Add to cart</LoadingButton>
                 <Button component={Link} to={`/catalog/${product.id}`}>View</Button>
             </CardActions>
         </Card>

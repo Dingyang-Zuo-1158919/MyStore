@@ -6,11 +6,7 @@ namespace API.Data
     {
         public static void Initialize(StoreContext context)
         {
-            if (context.Products.Any())
-            {
-                context.Products.RemoveRange(context.Products);
-                context.SaveChanges();
-            };
+            if (context.Products.Any()) return;
 
             var products = new List<Product>
             {
